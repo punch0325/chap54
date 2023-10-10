@@ -21,7 +21,7 @@ public interface CityMapper {
 	@Select("""
 			  select * 
 			    from city
-			   where country_code = #{code, jdbcType=VARCHAR} 
+			   where countryCode = #{code, jdbcType=VARCHAR} 
 			 """)                                                    // jdbcType=VARCHAR를 주면 null값이어도 오류 나지 않는다.
 	List<City> selectAllByCode(String code);
 	
@@ -46,7 +46,7 @@ public interface CityMapper {
 			s.SELECT("*");
 			s.FROM("city");
 			if (code != null && !code.trim().equals(""))
-				s.WHERE(String.format("country_code = '%s'", code));
+				s.WHERE(String.format("countryCode = '%s'", code));
 			if (population != null)
 				s.WHERE(String.format("population >= %d", population));
 			

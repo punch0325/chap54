@@ -20,10 +20,10 @@ public interface CountryMapper {
 	@Select("select distinct region from country where continent = #{continent, jdbcType=VARCHAR}")
 	List<String> selectRegions(String continent);
 	
-	@Select("SELECT * FROM COUNTRY WHERE CONTINENT = #{continent}")
+	@Select("select * from country where continent = #{continent}")
 	List<Country> selectAllByContinent(String continent);
 	
-	@Select("SELECT * FROM COUNTRY WHERE CONTINENT = #{continent} AND REGION = #{region}")
+	@Select("select * from country where continent = #{continent} and region = #{region}")
 	List<Country> selectAllByContinentAndRegion(@Param("continent")String continent, @Param("region")String region);
 																								// 받아야할 매개변수가 2개 이상이면 @Param을 이용하여 매개변수 값을 쿼리문에 넣어준다.
 	
